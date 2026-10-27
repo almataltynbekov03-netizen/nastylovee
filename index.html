@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffe3e1">
+<meta name="description" content="Маленькое романтическое приглашение на свидание для Анастасии.">
+<meta name="color-scheme" content="light">
+<title>Анастасия ❤️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Manrope:wght@400;500;600&display=swap">
+<style>
+:root{--bg1:#fff1ef;--bg2:#ffe3e1;--paper:#fffaf0;--ink:#5a2a33;--soft:#8a5560;--rose:#e0707f;--rose2:#c9485b;--glow:rgba(224,112,127,.35);
+--script:"Marck Script","Segoe Script","Brush Script MT",cursive;--sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{font-family:var(--sans);color:var(--ink);background:radial-gradient(120% 80% at 50% 0%,var(--bg1),var(--bg2));overflow-x:hidden;padding:env(safe-area-inset-top,0) env(safe-area-inset-right,0) env(safe-area-inset-bottom,0) env(safe-area-inset-left,0);-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;background-image:repeating-linear-gradient(0deg,rgba(150,90,80,.05) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(150,90,80,.04) 0 1px,transparent 1px 4px)}
+#night{position:fixed;inset:0;pointer-events:none;opacity:0;transition:opacity 1.6s;background:radial-gradient(120% 90% at 50% 0%,#5a2140,#2b1230 70%)}
+#night i{position:absolute;width:3px;height:3px;border-radius:50%;background:#ffe9c9;animation:tw 3s ease-in-out infinite}
+@keyframes tw{50%{opacity:.15;transform:scale(.6)}}
+body.night #night{opacity:1}
+body.night h2,body.night h1{color:#ffc2ca;text-shadow:0 0 26px rgba(255,150,170,.55)}
+body.night .sub{color:#f2cfd5}
+#hearts,#fx{position:fixed;inset:0;pointer-events:none;z-index:1}
+#fx{z-index:50}
+.fh{position:absolute;bottom:-40px;opacity:0;animation:rise linear infinite;color:var(--rose)}
+@keyframes rise{0%{transform:translateY(0) translateX(0) rotate(0);opacity:0}10%{opacity:.5}90%{opacity:.35}100%{transform:translateY(-110vh) translateX(var(--dx)) rotate(25deg);opacity:0}}
+main{position:relative;z-index:2;min-height:100%;display:grid;place-items:center}
+.screen{display:none;width:100%;max-width:460px;padding:28px 22px 60px;text-align:center;flex-direction:column;align-items:center;gap:20px}
+.screen.on{display:flex;animation:in .9s ease both}
+@keyframes in{from{opacity:0;transform:scale(.97);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+h1{font-family:var(--script);font-weight:400;font-size:clamp(56px,17vw,84px);line-height:1;color:var(--rose2);text-shadow:0 6px 28px var(--glow)}
+h2{font-family:var(--script);font-weight:400;font-size:clamp(34px,10vw,48px);line-height:1.15;color:var(--rose2)}
+.sub{font-size:17px;color:var(--soft);line-height:1.6}
+.btn{font:600 17px var(--sans);color:#fff;background:linear-gradient(135deg,#ee8693,var(--rose2));border:0;border-radius:999px;padding:15px 30px;min-height:48px;cursor:pointer;box-shadow:0 10px 26px var(--glow);transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:scale(.96)}
+.btn:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
+.btn:focus-visible,.chip:focus-visible,.mus:focus-visible,.rs:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.btn.alt{background:var(--paper);color:var(--rose2);border:1.5px solid var(--rose)}
+.heart{width:92px;height:92px;color:var(--rose);filter:drop-shadow(0 8px 18px var(--glow));animation:beat 1.6s ease-in-out infinite}
+.heart.big{width:150px;height:150px}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.14)}30%{transform:scale(1)}45%{transform:scale(1.09)}}
+.env{display:none;position:relative;width:240px;height:160px;margin:20px 0 40px;perspective:700px}
+.env.on{display:block;animation:in .6s both}
+.env .back{position:absolute;inset:0;background:#f3b7bd;border-radius:6px;box-shadow:0 16px 36px var(--glow)}
+.env .card{position:absolute;left:14px;right:14px;top:10px;height:130px;background:var(--paper);border-radius:4px;transition:transform .9s .55s ease;display:grid;place-items:center;font-family:var(--script);font-size:30px;color:var(--rose2)}
+.env .front{position:absolute;inset:0;border-radius:6px;background:linear-gradient(150deg,transparent 49.5%,#f6c6cb 50%) left/50% 100% no-repeat,linear-gradient(210deg,transparent 49.5%,#f6c6cb 50%) right/50% 100% no-repeat}
+.env .flap{position:absolute;left:0;right:0;top:0;height:85px;background:#e99aa5;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .7s ease;z-index:3}
+.env.open .flap{transform:rotateX(180deg);z-index:0}.env.open .card{transform:translateY(-70px)}
+.env .seal{position:absolute;left:50%;top:66px;transform:translateX(-50%);z-index:4;width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e6586c,#a62a40);display:grid;place-items:center;font-size:16px;box-shadow:0 3px 8px rgba(0,0,0,.25);transition:opacity .3s}
+.env.open .seal{opacity:0}
+.paper{background:var(--paper);border-radius:6px;padding:30px 24px;text-align:left;box-shadow:0 18px 44px var(--glow);width:100%;transform:rotate(-.6deg);background-image:repeating-linear-gradient(transparent 0 31px,rgba(224,112,127,.18) 31px 32px)}
+.paper p{font-family:var(--script);font-size:23px;line-height:32px;color:#5a2a33;margin:0 0 32px;min-height:32px}
+.paper p:last-child{margin:0}
+.cur::after{content:"|";animation:blink 1s steps(1) infinite;color:var(--rose)}
+@keyframes blink{50%{opacity:0}}
+.hid{visibility:hidden;opacity:0;transition:opacity .8s}.hid.show{visibility:visible;opacity:1}
+.rs{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.rs button{font-size:34px;width:64px;height:64px;border-radius:50%;border:1.5px solid var(--rose);background:var(--paper);cursor:pointer;box-shadow:0 8px 20px var(--glow);animation:beat 2.4s infinite}
+.rs button.done{animation:none;opacity:.45}
+.rc{min-height:92px;width:100%;background:var(--paper);border-radius:18px;padding:18px;font-family:var(--script);font-size:24px;line-height:1.3;color:#5a2a33;box-shadow:0 10px 26px var(--glow)}
+.rc.pop{animation:pop .5s ease}
+@keyframes pop{from{transform:scale(.9);opacity:0}to{transform:none;opacity:1}}
+.row{display:flex;flex-direction:column;gap:12px;width:100%}
+.plan{width:100%;background:var(--paper);border-radius:20px;padding:8px 20px;text-align:left;box-shadow:0 14px 34px var(--glow);color:var(--ink)}
+.plan>div{display:flex;gap:12px;padding:14px 0;border-bottom:1px dashed rgba(224,112,127,.4);line-height:1.45;font-size:16px}
+.plan>div:last-child{border:0}.plan .i{font-size:22px}.plan b{display:block;font-weight:600;color:var(--rose2)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{font:500 15px var(--sans);padding:10px 14px;min-height:44px;border-radius:999px;border:1.5px solid var(--rose);background:transparent;color:var(--ink);cursor:pointer}
+.chip.sel{background:var(--rose2);color:#fff;border-color:var(--rose2)}
+.plan input{font:16px var(--sans);padding:12px;border-radius:12px;border:1.5px solid var(--rose);background:transparent;color:var(--ink);width:100%}
+.two{display:flex;gap:8px;margin-top:8px}
+.foot{font-size:14px;color:var(--soft)}
+.mus{position:fixed;right:max(14px,env(safe-area-inset-right));top:calc(14px + env(safe-area-inset-top,0px));z-index:60;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--rose);background:var(--paper);font-size:20px;cursor:pointer;box-shadow:0 6px 16px var(--glow)}
+.tap{position:fixed;z-index:70;pointer-events:none;font-size:20px}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}.fh{display:none}}
+</style>
+</head>
+<body>
+<div id="night" aria-hidden="true"></div>
+<div id="hearts" aria-hidden="true"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+<button class="mus" id="mus" aria-label="Включить музыку">🎵</button>
+<main>
+  <section class="screen on" id="s1">
+    <h1 id="name1"></h1>
+    <p class="sub">У меня есть кое-что для тебя…</p>
+    <svg class="heart" id="h1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 2.8 5 6.2 5c2.1 0 3.6 1.2 4.4 2.5h2.8C14.2 6.2 15.7 5 17.8 5 21.2 5 23 8.6 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg>
+    <div class="env" id="env"><div class="back"></div><div class="card">для тебя</div><div class="front"></div><div class="flap"></div><div class="seal">❤</div></div>
+    <button class="btn" id="open">Открыть 💌</button>
+  </section>
+  <section class="screen" id="s2">
+    <div class="paper" id="letter" aria-live="polite"></div>
+    <button class="btn hid" id="toR">Дальше ❤️</button>
+  </section>
+  <section class="screen" id="s3">
+    <h2>Пока ты не ответила…</h2>
+    <p class="sub">Нажми на сердечки, там спрятано кое-что о тебе.</p>
+    <div class="rs" id="rs"></div>
+    <div class="rc" id="rc" aria-live="polite"></div>
+    <button class="btn hid" id="toQ">Узнать вопрос ❤️</button>
+  </section>
+  <section class="screen" id="s4">
+    <svg class="heart big" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 2.8 5 6.2 5c2.1 0 3.6 1.2 4.4 2.5h2.8C14.2 6.2 15.7 5 17.8 5 21.2 5 23 8.6 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg>
+    <h2 id="q"></h2>
+    <div class="row"><button class="btn yes">ДААА! ❤️</button><button class="btn yes alt">Конечно, да 🥹</button></div>
+  </section>
+  <section class="screen" id="s5">
+    <h2>Я знал, что у тебя отличный вкус ❤️</h2>
+    <p class="sub">Тогда официально приглашаю тебя на наше маленькое приключение. Место и мелочи выбираешь ты.</p>
+    <div class="plan" id="plan"></div>
+    <button class="btn" id="agree">Я согласна 💌</button>
+  </section>
+  <section class="screen" id="s6">
+    <svg class="heart big" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 2.8 5 6.2 5c2.1 0 3.6 1.2 4.4 2.5h2.8C14.2 6.2 15.7 5 17.8 5 21.2 5 23 8.6 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg>
+    <h2>Тогда решено. Этот вечер — наш ❤️</h2>
+    <p class="sub" id="placeOut"></p>
+    <p class="sub" id="cd2"></p>
+    <button class="btn alt" id="calBtn" style="display:none">Добавить в календарь</button>
+    <p class="foot" id="status">Отправляю мне твой ответ…</p>
+    <p class="foot">Создано с теплом специально для тебя ❤️</p>
+  </section>
+</main>
+<script>
+/* ====== РЕДАКТИРУЙ ЗДЕСЬ ====== */
+const CONFIG = {
+  name: "Анастасия",
+  nick: "Настя",
+  date: "",            // формат 2026-11-07. Пусто = Настя выберет день сама
+  time: "19:00",
+  timeText: "",        // если хочешь свой текст вместо даты/времени
+  endpoint: "/.netlify/functions/notify",
+  placeOptions: ["Уютное кафе ☕","Прогулка по вечернему городу 🌆","Ужин при свечах 🕯️","Кино и попкорн 🍿","Удиви меня ✨"],
+  extraTitle: "Что ты любишь больше?",
+  extraOptions: ["Цветы 🌷","Сладкое 🍫","Мягкие игрушки 🧸","Сюрпризы 🎁"],
+  reasons: [
+    "Твоя улыбка делает любой день лучше",
+    "С тобой легко быть самим собой",
+    "Твой смех — мой любимый звук",
+    "Рядом с тобой время летит незаметно"
+  ],
+  letter: [
+    "{nick}, я тут подумал…",
+    "Зачем просто писать тебе обычное сообщение, если можно сделать кое-что особенное?",
+    "Я хочу украсть тебя на один вечер. Без лишней суеты, без спешки, без повседневных забот.",
+    "Только ты, я и вечер, который мы проведём вместе.",
+    "Хочу видеть твою улыбку, слушать твой смех и создать ещё одно воспоминание, которое захочется сохранить в сердце.",
+    "Поэтому у меня к тебе один очень важный вопрос…"
+  ],
+  dress: "Быть самой красивой, как всегда",
+  condition: "Взять с собой хорошее настроение"
+};
+/* ================================ */
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+$("#name1").textContent=CONFIG.name+" ❤️";
+$("#q").textContent=CONFIG.name+", пойдёшь со мной на свидание? ❤️";
+const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const fmtDate=d=>new Date(d+"T00:00").toLocaleDateString("ru-RU",{day:"numeric",month:"long"});
+
+/* background: hearts + stars */
+(function(){const w=$("#hearts"),sy=["❤","♥","🌸","✨"];
+for(let i=0;i<16;i++){const e=document.createElement("span");e.className="fh";e.textContent=sy[i%4];
+e.style.cssText=`left:${Math.random()*100}%;font-size:${12+Math.random()*18}px;animation-duration:${12+Math.random()*14}s;animation-delay:${-Math.random()*20}s;--dx:${(Math.random()-.5)*80}px`;w.appendChild(e)}
+const n=$("#night");for(let i=0;i<50;i++){const s=document.createElement("i");s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*3}s;transform:scale(${.5+Math.random()})`;n.appendChild(s)}})();
+/* tap hearts */
+addEventListener("pointerdown",e=>{if(reduce)return;const h=document.createElement("span");h.className="tap";h.textContent=["❤️","💗","✨"][Math.random()*3|0];h.style.left=e.clientX-10+"px";h.style.top=e.clientY-10+"px";document.body.appendChild(h);
+h.animate([{transform:"translateY(0) scale(.6)",opacity:1},{transform:"translateY(-70px) scale(1.3)",opacity:0}],{duration:900,easing:"ease-out"}).onfinish=()=>h.remove()});
+
+function go(id,night){$$(".screen").forEach(s=>s.classList.remove("on"));const next=$(id);next.classList.add("on");document.body.classList.toggle("night",!!night);scrollTo(0,0);const heading=next.querySelector("h1,h2");if(heading){heading.setAttribute("tabindex","-1");heading.focus({preventScroll:true})}}
+
+/* 1 → 2 */
+function typeLetter(){
+  const box=$("#letter");box.innerHTML="";const lines=CONFIG.letter.map(s=>s.replace("{nick}",CONFIG.nick));let li=0;
+  (function next(){
+    if(li>=lines.length){$("#toR").classList.add("show");return}
+    const p=document.createElement("p");p.className="cur";box.appendChild(p);const txt=lines[li];let i=0;
+    (function tick(){if(i<=txt.length){p.textContent=txt.slice(0,i++);setTimeout(tick,reduce?0:34)}else{p.classList.remove("cur");li++;setTimeout(next,reduce?0:350)}})();
+  })();
+}
+$("#open").onclick=()=>{$("#open").disabled=true;$("#h1").style.display="none";$("#open").style.visibility="hidden";
+  const env=$("#env");env.classList.add("on");setTimeout(()=>env.classList.add("open"),400);setTimeout(()=>{go("#s2");typeLetter()},2000)};
+$("#toR").onclick=()=>go("#s3");
+
+/* 3: reasons */
+let opened=0;
+CONFIG.reasons.forEach((r,i)=>{const b=document.createElement("button");b.textContent="💗";b.setAttribute("aria-label","Причина "+(i+1));
+  b.onclick=()=>{const c=$("#rc");c.textContent=r;c.classList.remove("pop");void c.offsetWidth;c.classList.add("pop");
+    if(!b.classList.contains("done")){b.classList.add("done");opened++;if(opened===CONFIG.reasons.length)$("#toQ").classList.add("show")}};
+  $("#rs").appendChild(b)});
+$("#toQ").onclick=()=>go("#s4",true);
+
+/* confetti */
+const cv=$("#fx"),cx=cv.getContext("2d");let parts=[],run=false;
+function size(){cv.width=innerWidth*devicePixelRatio;cv.height=innerHeight*devicePixelRatio}size();addEventListener("resize",size);
+function burst(){const cols=["#e0707f","#f6b3bb","#ffd9a8","#fff","#c9485b"],W=cv.width,H=cv.height,d=devicePixelRatio;
+  for(let i=0;i<130;i++)parts.push({x:W/2,y:H*.55,vx:(Math.random()-.5)*16*d,vy:(-Math.random()*17-4)*d,g:.38*d,r:(4+Math.random()*7)*d,c:cols[i%5],h:Math.random()<.45,a:1,rot:Math.random()*6});
+  if(!run){run=true;loop()}}
+function hp(x,y,s){cx.beginPath();cx.moveTo(x,y+s*.3);cx.bezierCurveTo(x,y-s*.3,x-s,y-s*.3,x-s,y+s*.3);cx.bezierCurveTo(x-s,y+s*.8,x,y+s,x,y+s*1.3);cx.bezierCurveTo(x,y+s,x+s,y+s*.8,x+s,y+s*.3);cx.bezierCurveTo(x+s,y-s*.3,x,y-s*.3,x,y+s*.3);cx.fill()}
+function loop(){cx.clearRect(0,0,cv.width,cv.height);parts=parts.filter(p=>p.a>.02&&p.y<cv.height+50);
+  for(const p of parts){p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.vx*=.99;p.a-=.006;p.rot+=.1;cx.globalAlpha=Math.max(p.a,0);cx.fillStyle=p.c;
+    if(p.h)hp(p.x,p.y,p.r*.7);else{cx.save();cx.translate(p.x,p.y);cx.rotate(p.rot);cx.fillRect(-p.r/2,-p.r/3,p.r,p.r*.6);cx.restore()}}
+  cx.globalAlpha=1;if(parts.length)requestAnimationFrame(loop);else run=false}
+
+/* 4 → 5 */
+$$(".yes").forEach(b=>b.onclick=()=>{go("#s5");burst();setTimeout(burst,450);setTimeout(burst,900)});
+
+/* 5: plan */
+const staticWhen=CONFIG.timeText||(CONFIG.date?fmtDate(CONFIG.date)+", "+CONFIG.time:"");
+const chips=(a,c)=>a.map(p=>`<button type="button" class="chip ${c}">${p}</button>`).join("");
+$("#plan").innerHTML=
+ (staticWhen?`<div><span class="i">🌅</span><span><b>Время</b>${staticWhen}</span></div>`
+  :`<div><span class="i">🌅</span><span style="width:100%"><b>Когда тебе удобно?</b><span class="two"><input type="date" id="cd" aria-label="День"><input type="time" id="ct" value="19:00" aria-label="Время"></span></span></div>`)+
+ `<div><span class="i">📍</span><span style="width:100%"><b>Место выбираешь ты</b><span class="chips">${chips(CONFIG.placeOptions,"pl")}</span><input id="own" placeholder="Или напиши своё место" maxlength="80" aria-label="Своё место"></span></div>`+
+ `<div><span class="i">🎁</span><span><b>${CONFIG.extraTitle}</b><span class="chips">${chips(CONFIG.extraOptions,"ex")}</span></span></div>`+
+ `<div><span class="i">✨</span><span><b>Дресс-код</b>${CONFIG.dress}</span></div>`+
+ `<div><span class="i">❤️</span><span><b>Главное условие</b>${CONFIG.condition}</span></div>`;
+let place="",extra="";
+function pickGroup(cls,set){$$("."+cls).forEach(c=>c.onclick=()=>{$$("."+cls).forEach(x=>x.classList.toggle("sel",x===c));set(c.textContent);if(cls==="pl")$("#own").value="";$("#agree").disabled=!place})}
+pickGroup("pl",v=>place=v);pickGroup("ex",v=>extra=v);
+$("#own").oninput=e=>{place=e.target.value.trim();$$(".pl").forEach(x=>x.classList.remove("sel"));$("#agree").disabled=!place};
+$("#agree").disabled=true;
+const getDate=()=>CONFIG.date||($("#cd")?$("#cd").value:"");
+const getTime=()=>CONFIG.date?CONFIG.time:($("#ct")&&$("#ct").value||"19:00");
+const getWhen=()=>staticWhen||(getDate()?fmtDate(getDate())+", "+getTime():"");
+
+/* 6: final + notification */
+$("#agree").onclick=async()=>{
+  $("#agree").disabled=true;$("#placeOut").textContent="Наше место: "+place;go("#s6");burst();setTimeout(burst,500);
+  const d=getDate();
+  if(d){$("#calBtn").style.display="";
+    const days=Math.ceil((new Date(d+"T00:00")-new Date().setHours(0,0,0,0))/864e5);
+    $("#cd2").textContent=days>0?"До нашего вечера: "+days+" "+(days%10===1&&days%100!==11?"день":(days%10>=2&&days%10<=4&&(days%100<10||days%100>=20)?"дня":"дней")):days===0?"Это случится уже сегодня ❤️":""}
+  try{const r=await fetch(CONFIG.endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:CONFIG.name,place,extra,when:getWhen()})});
+    $("#status").textContent=r.ok?"Твой ответ уже у меня ❤️":"Ответ не дошёл, напиши мне сама ❤️"}
+  catch(e){$("#status").textContent="Ответ не дошёл, напиши мне сама ❤️"}
+};
+
+/* calendar (.ics) */
+$("#calBtn").onclick=()=>{
+  const d=getDate().replace(/-/g,""),[h,m]=getTime().split(":"),pad=n=>String(n).padStart(2,"0");
+  const esc=s=>String(s).replace(/\\/g,"\\\\").replace(/\r?\n/g,"\\n").replace(/[,;]/g,"\\$&");
+  const start=new Date(Number(d.slice(0,4)),Number(d.slice(4,6))-1,Number(d.slice(6,8)),Number(h),Number(m));
+  const end=new Date(start.getTime()+3*60*60*1000);
+  const stamp=date=>date.getFullYear()+pad(date.getMonth()+1)+pad(date.getDate())+"T"+pad(date.getHours())+pad(date.getMinutes())+pad(date.getSeconds());
+  const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//nastya//RU","CALSCALE:GREGORIAN","BEGIN:VEVENT","UID:date-"+d+"@nastya","DTSTAMP:"+new Date().toISOString().replace(/[-:]|\.\d+/g,""),
+   "DTSTART:"+stamp(start),"DTEND:"+stamp(end),"SUMMARY:Наше свидание ❤️","LOCATION:"+esc(place),"DESCRIPTION:Этот вечер — наш ❤️","END:VEVENT","END:VCALENDAR"].join("\r\n");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([ics],{type:"text/calendar"}));a.download="nashe-svidanie.ics";document.body.appendChild(a);a.click();a.remove()};
+
+/* music (off until tapped) */
+let ac=null,timer=null,on=false;const notes=[523.25,659.25,783.99,659.25,587.33,698.46,880,698.46,523.25,659.25,783.99,1046.5];
+$("#mus").onclick=()=>{try{if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();on=!on;
+  if(on){ac.resume();let i=0;timer=setInterval(()=>{const o=ac.createOscillator(),g=ac.createGain();o.frequency.value=notes[i++%notes.length]/2;
+    g.gain.setValueAtTime(0,ac.currentTime);g.gain.linearRampToValueAtTime(.08,ac.currentTime+.05);g.gain.exponentialRampToValueAtTime(.0005,ac.currentTime+1.4);
+    o.connect(g).connect(ac.destination);o.start();o.stop(ac.currentTime+1.5)},700)}else clearInterval(timer);
+  $("#mus").textContent=on?"🔊":"🎵";$("#mus").setAttribute("aria-label",on?"Выключить музыку":"Включить музыку")}catch(e){}};
+</script>
+</body>
+</html>
